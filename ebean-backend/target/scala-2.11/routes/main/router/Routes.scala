@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/laure/Desktop/Lab-2-Ebean/team1_proj/ebean-backend/conf/routes
-// @DATE:Mon Apr 25 12:13:47 CDT 2022
+// @DATE:Mon Apr 25 14:46:19 CDT 2022
 
 package router
 
@@ -20,6 +20,8 @@ class Routes(
   HomeController_0: controllers.HomeController,
   // @LINE:9
   UserController_1: controllers.UserController,
+  // @LINE:16
+  PaperController_2: controllers.PaperController,
   val prefix: String
 ) extends GeneratedRouter {
 
@@ -28,14 +30,16 @@ class Routes(
     // @LINE:6
     HomeController_0: controllers.HomeController,
     // @LINE:9
-    UserController_1: controllers.UserController
-  ) = this(errorHandler, HomeController_0, UserController_1, "/")
+    UserController_1: controllers.UserController,
+    // @LINE:16
+    PaperController_2: controllers.PaperController
+  ) = this(errorHandler, HomeController_0, UserController_1, PaperController_2, "/")
 
   import ReverseRouteContext.empty
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_0, UserController_1, prefix)
+    new Routes(errorHandler, HomeController_0, UserController_1, PaperController_2, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -46,6 +50,8 @@ class Routes(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.UserController.authenticate()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup""", """controllers.UserController.registerNew()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getPaperByTitle""", """controllers.PaperController.getByTitle(title:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getPapersBYAuthorName""", """controllers.PaperController.getByAuthorName(name:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -104,6 +110,40 @@ class Routes(
     )
   )
 
+  // @LINE:16
+  private[this] lazy val controllers_PaperController_getByTitle3_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getPaperByTitle")))
+  )
+  private[this] lazy val controllers_PaperController_getByTitle3_invoker = createInvoker(
+    PaperController_2.getByTitle(fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.PaperController",
+      "getByTitle",
+      Seq(classOf[String]),
+      "GET",
+      """ get papers by title""",
+      this.prefix + """getPaperByTitle"""
+    )
+  )
+
+  // @LINE:19
+  private[this] lazy val controllers_PaperController_getByAuthorName4_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getPapersBYAuthorName")))
+  )
+  private[this] lazy val controllers_PaperController_getByAuthorName4_invoker = createInvoker(
+    PaperController_2.getByAuthorName(fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.PaperController",
+      "getByAuthorName",
+      Seq(classOf[String]),
+      "GET",
+      """ get by Author Name""",
+      this.prefix + """getPapersBYAuthorName"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -123,6 +163,18 @@ class Routes(
     case controllers_UserController_registerNew2_route(params) =>
       call { 
         controllers_UserController_registerNew2_invoker.call(UserController_1.registerNew())
+      }
+  
+    // @LINE:16
+    case controllers_PaperController_getByTitle3_route(params) =>
+      call(params.fromQuery[String]("title", None)) { (title) =>
+        controllers_PaperController_getByTitle3_invoker.call(PaperController_2.getByTitle(title))
+      }
+  
+    // @LINE:19
+    case controllers_PaperController_getByAuthorName4_route(params) =>
+      call(params.fromQuery[String]("name", None)) { (name) =>
+        controllers_PaperController_getByAuthorName4_invoker.call(PaperController_2.getByAuthorName(name))
       }
   }
 }

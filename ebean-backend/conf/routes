@@ -12,3 +12,8 @@ POST     /login                      controllers.UserController.authenticate()
 # Add User  {"name":name, "password":password}
 POST    /signup                      controllers.UserController.registerNew()
 
+# get papers by title
+GET     /getPaperByTitle             controllers.PaperController.getByTitle(title)
+
+# get by Author Name
+GET     /getPapersBYAuthorName      controllers.PaperController.getByAuthorName(name)

@@ -1,8 +1,11 @@
-2022-04-25 12:14:04,827 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
-2022-04-25 12:14:05,147 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:mysql://localhost:3306/team1?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-2022-04-25 12:14:05,961 [ERROR] from application in netty-event-loop-4 - 
+2022-04-25 14:25:19,043 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
+2022-04-25 14:25:19,262 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:mysql://localhost:3306/team1?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2022-04-25 14:25:22,024 [INFO] from application in ForkJoinPool-1-worker-1 - Shutting down connection pool.
+2022-04-25 14:25:22,249 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
+2022-04-25 14:25:22,302 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:mysql://localhost:3306/team1?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2022-04-25 14:25:22,511 [ERROR] from application in netty-event-loop-4 - 
 
-! @7ne53947n - Internal server error, for (GET) [/] ->
+! @7ne5kf822 - Internal server error, for (GET) [/] ->
  
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
 	at play.api.db.evolutions.ApplicationEvolutions$$anonfun$play$api$db$evolutions$ApplicationEvolutions$$runEvolutions$1.apply$mcV$sp(ApplicationEvolutions.scala:77)
@@ -54,7 +57,23 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-2022-04-25 12:14:15,510 [INFO] from application in ForkJoinPool-1-worker-1 - Shutting down connection pool.
-2022-04-25 12:14:15,623 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
-2022-04-25 12:14:15,657 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:mysql://localhost:3306/team1?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-2022-04-25 12:14:15,856 [INFO] from play.api.Play in ForkJoinPool-1-worker-1 - Application started (Dev)
+2022-04-25 14:25:49,847 [INFO] from application in ForkJoinPool-1-worker-2 - Shutting down connection pool.
+2022-04-25 14:25:50,071 [INFO] from application in ForkJoinPool-1-worker-2 - Creating Pool for datasource 'default'
+2022-04-25 14:25:50,117 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-2 - Database [default] connected at jdbc:mysql://localhost:3306/team1?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2022-04-25 14:25:50,515 [INFO] from play.api.Play in ForkJoinPool-1-worker-2 - Application started (Dev)
+2022-04-25 14:46:38,069 [INFO] from application in application-akka.actor.default-dispatcher-7 - Shutting down connection pool.
+2022-04-25 14:46:38,261 [INFO] from application in application-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2022-04-25 14:46:38,292 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-7 - Database [default] connected at jdbc:mysql://localhost:3306/team1?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2022-04-25 14:46:38,533 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-7 - Application started (Dev)
+2022-04-25 14:52:03,683 [INFO] from application in application-akka.actor.default-dispatcher-10 - Shutting down connection pool.
+2022-04-25 14:52:03,926 [INFO] from application in application-akka.actor.default-dispatcher-10 - Creating Pool for datasource 'default'
+2022-04-25 14:52:03,975 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-10 - Database [default] connected at jdbc:mysql://localhost:3306/team1?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2022-04-25 14:52:04,202 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-10 - Application started (Dev)
+2022-04-25 14:55:29,809 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2022-04-25 14:55:30,020 [INFO] from application in application-akka.actor.default-dispatcher-5 - Creating Pool for datasource 'default'
+2022-04-25 14:55:30,065 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-5 - Database [default] connected at jdbc:mysql://localhost:3306/team1?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2022-04-25 14:55:30,291 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-5 - Application started (Dev)
+2022-04-25 15:04:47,946 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2022-04-25 15:04:48,152 [INFO] from application in application-akka.actor.default-dispatcher-5 - Creating Pool for datasource 'default'
+2022-04-25 15:04:48,203 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-5 - Database [default] connected at jdbc:mysql://localhost:3306/team1?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2022-04-25 15:04:48,451 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-5 - Application started (Dev)

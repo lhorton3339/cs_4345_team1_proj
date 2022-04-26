@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/laure/Desktop/Lab-2-Ebean/team1_proj/ebean-backend/conf/routes
-// @DATE:Mon Apr 25 12:13:47 CDT 2022
+// @DATE:Mon Apr 25 14:46:19 CDT 2022
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -12,6 +12,27 @@ import _root_.play.libs.F
 
 // @LINE:6
 package controllers {
+
+  // @LINE:16
+  class ReversePaperController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:19
+    def getByAuthorName(name:String): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "getPapersBYAuthorName" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("name", name)))))
+    }
+  
+    // @LINE:16
+    def getByTitle(title:String): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "getPaperByTitle" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("title", title)))))
+    }
+  
+  }
 
   // @LINE:6
   class ReverseHomeController(_prefix: => String) {
