@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/laure/Desktop/Lab-2-Ebean/team1_proj/ebean-backend/conf/routes
-// @DATE:Mon Apr 25 22:56:07 CDT 2022
+// @DATE:Mon Apr 25 23:07:54 CDT 2022
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -22,6 +22,16 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:25
+    def getByTags: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.PaperController.getByTags",
+      """
+        function(tag0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getPaperByTag" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("tag", tag0)])})
+        }
+      """
+    )
   
     // @LINE:22
     def getByAuthorName: JavaScriptReverseRoute = JavaScriptReverseRoute(

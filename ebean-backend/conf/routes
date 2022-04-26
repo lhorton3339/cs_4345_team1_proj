@@ -19,4 +19,7 @@ GET     /getPaperByTitle             controllers.PaperController.getByTitle(titl
 GET     /getPaperByYear             controllers.PaperController.getByYear(year)
 
 # get by Author Name
-GET     /getPaperByAuthorName      controllers.PaperController.getByAuthorName(name)
+GET     /getPaperByAuthorName       controllers.PaperController.getByAuthorName(name)
+
+# get by Tags
+GET     /getPaperByTag              controllers.PaperController.getByTags(tag)
