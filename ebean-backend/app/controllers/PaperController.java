@@ -2,6 +2,7 @@ package controllers;
 import com.fasterxml.jackson.databind.JsonNode;
 import models.Author;
 import models.Paper;
+import models.Tags;
 import models.User;
 import play.libs.Json;
 import play.mvc.*;
@@ -65,5 +66,24 @@ public class PaperController extends Controller{
         }
     }
 
+    public Result getByTags(String tag){
+        System.out.println("controller:" + tag);
+        try {
+            List<Tags> tagslist = Tags.getByTag(tag); // ( match where username and password both match )
+            List<Paper> paperlist = new ArrayList<>();
+            if(tagslist!=null){
+                for(Tags t : tagslist){
+                    paperlist.addAll(t.getPapers());
+                }
+                JsonNode jsonResult = Json.toJson(paperlist);
+                return ok(jsonResult);
+            }else{
+                return ok("false");
+            }
+        }
+        catch (Exception e) {
+            return ok("false");
+        }
+    }
 
 }

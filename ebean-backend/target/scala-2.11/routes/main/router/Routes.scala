@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/laure/Desktop/Lab-2-Ebean/team1_proj/ebean-backend/conf/routes
-// @DATE:Mon Apr 25 22:56:07 CDT 2022
+// @DATE:Mon Apr 25 23:07:54 CDT 2022
 
 package router
 
@@ -53,6 +53,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getPaperByTitle""", """controllers.PaperController.getByTitle(title:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getPaperByYear""", """controllers.PaperController.getByYear(year:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getPaperByAuthorName""", """controllers.PaperController.getByAuthorName(name:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getPaperByTag""", """controllers.PaperController.getByTags(tag:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -162,6 +163,23 @@ class Routes(
     )
   )
 
+  // @LINE:25
+  private[this] lazy val controllers_PaperController_getByTags6_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getPaperByTag")))
+  )
+  private[this] lazy val controllers_PaperController_getByTags6_invoker = createInvoker(
+    PaperController_2.getByTags(fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.PaperController",
+      "getByTags",
+      Seq(classOf[String]),
+      "GET",
+      """ get by Tags""",
+      this.prefix + """getPaperByTag"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -199,6 +217,12 @@ class Routes(
     case controllers_PaperController_getByAuthorName5_route(params) =>
       call(params.fromQuery[String]("name", None)) { (name) =>
         controllers_PaperController_getByAuthorName5_invoker.call(PaperController_2.getByAuthorName(name))
+      }
+  
+    // @LINE:25
+    case controllers_PaperController_getByTags6_route(params) =>
+      call(params.fromQuery[String]("tag", None)) { (tag) =>
+        controllers_PaperController_getByTags6_invoker.call(PaperController_2.getByTags(tag))
       }
   }
 }

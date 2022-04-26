@@ -8,29 +8,28 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.validation.Constraint;
 import java.util.List;
 
 @Entity
-public class Author extends Model {
+public class Tags extends Model {
     @Id
-    public long aid;
+    public long tid;
 
     @Constraints.Required
-    public String name;
+    public String tag;
 
-    @ManyToMany(mappedBy = "authors", cascade = CascadeType.MERGE)
+    @ManyToMany(mappedBy = "tags", cascade = CascadeType.MERGE)
     @JsonBackReference
     List<Paper> papers;
 
     public List<Paper> getPapers(){return papers;};
 
-    public static Find<String, Author> find = new Find<String, Author>(){};
+    public static Model.Find<String, Tags> find = new Model.Find<String, Tags>(){};
 
-    public static List<Author> getByName(String name){
-        return Author.find
+    public static List<Tags> getByTag(String tag){
+        return Tags.find
                 .where()
-                .like("name", "%"+name+"%")
+                .like("tag", "%"+tag+"%")
                 .findList();
     }
 }
