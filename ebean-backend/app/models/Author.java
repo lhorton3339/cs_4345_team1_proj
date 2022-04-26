@@ -27,6 +27,9 @@ public class Author extends Model {
     public static Find<String, Author> find = new Find<String, Author>(){};
 
     public static List<Author> getByName(String name){
-        return Author.find.where().like("name", "%"+name+"%").findList();
+        return Author.find
+                .where()
+                .like("name", "%"+name+"%")
+                .findList();
     }
 }

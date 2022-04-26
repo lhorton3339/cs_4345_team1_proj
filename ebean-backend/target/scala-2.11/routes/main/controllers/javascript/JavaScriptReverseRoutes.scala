@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/laure/Desktop/Lab-2-Ebean/team1_proj/ebean-backend/conf/routes
-// @DATE:Mon Apr 25 14:46:19 CDT 2022
+// @DATE:Mon Apr 25 22:56:07 CDT 2022
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -23,12 +23,12 @@ package controllers.javascript {
     }
 
   
-    // @LINE:19
+    // @LINE:22
     def getByAuthorName: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PaperController.getByAuthorName",
       """
         function(name0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getPapersBYAuthorName" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("name", name0)])})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getPaperByAuthorName" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("name", name0)])})
         }
       """
     )
@@ -39,6 +39,16 @@ package controllers.javascript {
       """
         function(title0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getPaperByTitle" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("title", title0)])})
+        }
+      """
+    )
+  
+    // @LINE:19
+    def getByYear: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.PaperController.getByYear",
+      """
+        function(year0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getPaperByYear" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("year", year0)])})
         }
       """
     )

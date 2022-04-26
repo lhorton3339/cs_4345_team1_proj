@@ -15,5 +15,8 @@ POST    /signup                      controllers.UserController.registerNew()
 # get papers by title
 GET     /getPaperByTitle             controllers.PaperController.getByTitle(title)
 
+# get papers by year
+GET     /getPaperByYear             controllers.PaperController.getByYear(year)
+
 # get by Author Name
-GET     /getPapersBYAuthorName      controllers.PaperController.getByAuthorName(name)
+GET     /getPaperByAuthorName      controllers.PaperController.getByAuthorName(name)

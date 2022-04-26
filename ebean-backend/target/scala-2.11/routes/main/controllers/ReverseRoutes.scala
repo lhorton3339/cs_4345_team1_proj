@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/laure/Desktop/Lab-2-Ebean/team1_proj/ebean-backend/conf/routes
-// @DATE:Mon Apr 25 14:46:19 CDT 2022
+// @DATE:Mon Apr 25 22:56:07 CDT 2022
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -20,16 +20,22 @@ package controllers {
     }
 
   
-    // @LINE:19
+    // @LINE:22
     def getByAuthorName(name:String): Call = {
       import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "getPapersBYAuthorName" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("name", name)))))
+      Call("GET", _prefix + { _defaultPrefix } + "getPaperByAuthorName" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("name", name)))))
     }
   
     // @LINE:16
     def getByTitle(title:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "getPaperByTitle" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("title", title)))))
+    }
+  
+    // @LINE:19
+    def getByYear(year:String): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "getPaperByYear" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("year", year)))))
     }
   
   }

@@ -32,4 +32,11 @@ public class Paper  extends Model{
                 .findUnique();
     }
 
+    public static List<Paper> getByYear(String year){
+        return Paper.find
+                .where()
+                .eq("year", year)
+                .findList();
+    }
+
 }

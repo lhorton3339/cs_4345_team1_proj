@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/laure/Desktop/Lab-2-Ebean/team1_proj/ebean-backend/conf/routes
-// @DATE:Mon Apr 25 14:46:19 CDT 2022
+// @DATE:Mon Apr 25 22:56:07 CDT 2022
 
 package router
 
@@ -51,7 +51,8 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.UserController.authenticate()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup""", """controllers.UserController.registerNew()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getPaperByTitle""", """controllers.PaperController.getByTitle(title:String)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getPapersBYAuthorName""", """controllers.PaperController.getByAuthorName(name:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getPaperByYear""", """controllers.PaperController.getByYear(year:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getPaperByAuthorName""", """controllers.PaperController.getByAuthorName(name:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -128,10 +129,27 @@ class Routes(
   )
 
   // @LINE:19
-  private[this] lazy val controllers_PaperController_getByAuthorName4_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getPapersBYAuthorName")))
+  private[this] lazy val controllers_PaperController_getByYear4_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getPaperByYear")))
   )
-  private[this] lazy val controllers_PaperController_getByAuthorName4_invoker = createInvoker(
+  private[this] lazy val controllers_PaperController_getByYear4_invoker = createInvoker(
+    PaperController_2.getByYear(fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.PaperController",
+      "getByYear",
+      Seq(classOf[String]),
+      "GET",
+      """ get papers by year""",
+      this.prefix + """getPaperByYear"""
+    )
+  )
+
+  // @LINE:22
+  private[this] lazy val controllers_PaperController_getByAuthorName5_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getPaperByAuthorName")))
+  )
+  private[this] lazy val controllers_PaperController_getByAuthorName5_invoker = createInvoker(
     PaperController_2.getByAuthorName(fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -140,7 +158,7 @@ class Routes(
       Seq(classOf[String]),
       "GET",
       """ get by Author Name""",
-      this.prefix + """getPapersBYAuthorName"""
+      this.prefix + """getPaperByAuthorName"""
     )
   )
 
@@ -172,9 +190,15 @@ class Routes(
       }
   
     // @LINE:19
-    case controllers_PaperController_getByAuthorName4_route(params) =>
+    case controllers_PaperController_getByYear4_route(params) =>
+      call(params.fromQuery[String]("year", None)) { (year) =>
+        controllers_PaperController_getByYear4_invoker.call(PaperController_2.getByYear(year))
+      }
+  
+    // @LINE:22
+    case controllers_PaperController_getByAuthorName5_route(params) =>
       call(params.fromQuery[String]("name", None)) { (name) =>
-        controllers_PaperController_getByAuthorName4_invoker.call(PaperController_2.getByAuthorName(name))
+        controllers_PaperController_getByAuthorName5_invoker.call(PaperController_2.getByAuthorName(name))
       }
   }
 }

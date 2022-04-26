@@ -30,6 +30,21 @@ public class PaperController extends Controller{
         }
     }
 
+    public Result getByYear(String year){
+        try {
+            List<Paper> paperlist = Paper.getByYear(year); // ( match where username and password both match )
+            if(paperlist!=null){
+                JsonNode jsonResult = Json.toJson(paperlist);
+                return ok(jsonResult);
+            }else{
+                return ok("false");
+            }
+        }
+        catch (Exception e) {
+            return ok("false");
+        }
+    }
+
     public Result getByAuthorName(String name){
         System.out.println("controller:" + name);
         try {
