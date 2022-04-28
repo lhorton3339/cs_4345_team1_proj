@@ -1,3 +1,14 @@
+# Search Engine
+
+Search engine for CS 4345: Software Engineering Principles
+
+Team 1 Members:
+
+- Adam Czarnik [aczarnik@smu.edu] macOS, 12.3
+- Lauren Horton [lhorton@smu.edu] Windows 10 Home, 21H2
+- Winnie Huong [whuong@smu.edu] Windows 10, Surface Pro
+- Matthew Grover [mbgrover@smu.edu] Windows 11, 10.0.22000
+
 # play-java-starter-example
 
 This is a starter application that shows how Play works.  Please see the documentation at https://www.playframework.com/documentation/latest/Home for more details.
