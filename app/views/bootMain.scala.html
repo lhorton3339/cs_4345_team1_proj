@@ -1,0 +1,40 @@
+@(message: String)
+@bootLayout("Linked Papers"){
+
+    <h5>Search Engine</h5>
+    <p>@message</p>
+
+    <form action="routes.PapersController.searchHandler()" method="GET">
+        <div class="row">
+            <div class="input-field col-md-5">
+                <label for="title">Title</label>
+                <input id="title" name="title" type="text">
+            </div>
+            <div class="input-field col-md-5 offset-2">
+                <label for="author">Author</label>
+                <input id="author" name="author" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="chemistry">Chemistry</label>
+                <input id="chemistry" name="chemistry" type="checkbox">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="biology">Biology</label>
+                <input id="biology" name="biology" type="checkbox">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="physics">Physics</label>
+                <input id="physics" name="physics" type="checkbox">
+            </div>
+        </div>
+        <div class="row">
+            <a type="button" href="bootResults.scala.html" class="btn btn-info m-3">Submit</a>
+        </div>
+    </form>
+}

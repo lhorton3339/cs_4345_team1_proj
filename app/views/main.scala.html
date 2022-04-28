@@ -1,0 +1,32 @@
+@(message: String)
+@layout("Linked Papers"){
+    <h1 class="focused" style="font-size: 24px;
+        color: #3F51B5">
+        <strong>Search Input</strong>
+    </h1>
+    <div class="card-panel">
+        <form action="routes.PapersController.searchHandler()" method="GET">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="title" name="title" type="text">
+                    <label for="title">Title</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="author" name="author" type="text">
+                    <label for="author">Author</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="subject" name="subject" type="checkbox">
+                    <label for="subject">Subject</label>
+                </div>
+            </div>
+            <div class="row">
+                <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+}

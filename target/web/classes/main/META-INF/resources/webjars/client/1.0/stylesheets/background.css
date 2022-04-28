@@ -1,0 +1,12 @@
+body{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-image: url('../images/pink.png');
+    background-repeat: repeat;
+}
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}

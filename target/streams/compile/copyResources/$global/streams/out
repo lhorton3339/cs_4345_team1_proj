@@ -1,0 +1,4 @@
+[debug] Copy resource mappings: 
+[debug] 	(C:\Users\kiots\Documents\software\Frontend\conf\application.conf,C:\Users\kiots\Documents\software\Frontend\target\scala-2.12\classes\application.conf)
+[debug] 	(C:\Users\kiots\Documents\software\Frontend\conf\logback.xml,C:\Users\kiots\Documents\software\Frontend\target\scala-2.12\classes\logback.xml)
+[debug] 	(C:\Users\kiots\Documents\software\Frontend\conf\routes,C:\Users\kiots\Documents\software\Frontend\target\scala-2.12\classes\routes)
